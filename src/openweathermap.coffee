@@ -36,7 +36,10 @@ class Weather
 
   _getJSON: (url, callback) ->
     request.get url, (err, res, body) ->
-      callback err, JSON.parse body
+      try
+        callback err, JSON.parse body
+      catch e
+        callback e
 
   _createQuery: () ->
     query = ""
@@ -64,6 +67,7 @@ class Weather.Forecast
         wind_speed      : x.wind.speed
         wind_degrees    : x.wind.deg
         condition       : x.weather[0].main
+        description     : x.weather[0].description
         sky             : x.clouds.all
 #        feelslike       : parseInt(x.feelslike.metric)
 #        wind_direction  : x.wind.deg
