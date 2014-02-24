@@ -1,6 +1,6 @@
 {
   "name": "fo-openweathermap",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "ForecastJS adapter",
   "homepage": "https://github.com/icaliman/fo-openweathermap",
   "main": "lib/openweathermap.js",
