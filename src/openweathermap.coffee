@@ -38,9 +38,10 @@ class Weather
     request.get url, (err, res, body) ->
       return callback err if err
       try
-        callback null, JSON.parse body
+        json = JSON.parse body
       catch e
-        callback e
+        return callback e
+      callback null, json
 
   _createQuery: () ->
     query = ""
