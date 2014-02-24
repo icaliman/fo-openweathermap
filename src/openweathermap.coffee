@@ -36,8 +36,9 @@ class Weather
 
   _getJSON: (url, callback) ->
     request.get url, (err, res, body) ->
+      return callback err if err
       try
-        callback err, JSON.parse body
+        callback null, JSON.parse body
       catch e
         callback e
 
